@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CottonSmart — Plataforma Inteligente do Algodão</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <script src="script.js"></script>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">CS</div>
+      <span class="brand-name">CottonSmart</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Produção</span>
+        <a href="#dashboard" class="nav-link active" onclick="showSection('dashboard')">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a href="#talhoes" class="nav-link" onclick="showSection('talhoes')">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Controle de Talhões
+        </a>
+        <a href="#ciclo" class="nav-link" onclick="showSection('ciclo')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Ciclo da Lavoura
+        </a>
+        <a href="#diario" class="nav-link" onclick="showSection('diario')">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Diário da Lavoura
+        </a>
+        <a href="#pragas" class="nav-link" onclick="showSection('pragas')">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          Pragas e Doenças
+        </a>
+        <a href="#clima" class="nav-link" onclick="showSection('clima')">
+          <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+          Clima
+        </a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Financeiro</span>
+        <a href="#custos" class="nav-link" onclick="showSection('custos')">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Gestão de Custos
+        </a>
+        <a href="#lucro" class="nav-link" onclick="showSection('lucro')">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          Calculadora de Lucro
+        </a>
+        <a href="#estoque" class="nav-link" onclick="showSection('estoque')">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          Estoque
+        </a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Mercado</span>
+        <a href="#mercado" class="nav-link" onclick="showSection('mercado')">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Mercado & Cotação
+        </a>
+        <a href="#venda" class="nav-link" onclick="showSection('venda')">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          Painel de Vendas
+        </a>
+        <a href="#contratos" class="nav-link" onclick="showSection('contratos')">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Contratos
+        </a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Operações</span>
+        <a href="#maquinas" class="nav-link" onclick="showSection('maquinas')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+          Máquinas
+        </a>
+        <a href="#documentos" class="nav-link" onclick="showSection('documentos')">
+          <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          Documentos
+        </a>
+        <a href="#relatorios" class="nav-link" onclick="showSection('relatorios')">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Relatórios
+        </a>
+        <a href="#ia" class="nav-link" onclick="showSection('ia')">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/><path d="M12 8v4l3 3"/></svg>
+          IA Agrícola
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="farm-badge">
+        <div class="farm-dot"></div>
+        <span>Fazenda Ativa</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-title" id="topbarTitle">Dashboard Geral</div>
+      <div class="topbar-right">
+        <div class="season-badge">Safra 2025/26</div>
+        <div class="topbar-user">
+          <div class="user-avatar">FA</div>
+          <span>Fazenda Algodão</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================
+         SEÇÃO: DASHBOARD
+    ============================= -->
+    <section id="dashboard" class="section active">
+      <div class="section-header">
+        <h1 class="section-title">Visão Geral da Fazenda</h1>
+        <p class="section-sub">Resumo operacional — Safra 2025/26</p>
+      </div>
+
+      <!-- KPI CARDS -->
+      <div class="kpi-grid">
+        <div class="kpi-card kpi-green">
+          <div class="kpi-icon">🌱</div>
+          <div class="kpi-data">
+            <div class="kpi-value">4.280</div>
+            <div class="kpi-label">Hectares Plantados</div>
+          </div>
+          <div class="kpi-trend up">▲ 12%</div>
+        </div>
+        <div class="kpi-card kpi-amber">
+          <div class="kpi-icon">📅</div>
+          <div class="kpi-data">
+            <div class="kpi-value" id="diasColheita">--</div>
+            <div class="kpi-label">Dias para Colheita</div>
+          </div>
+          <div class="kpi-trend neutral">●</div>
+        </div>
+        <div class="kpi-card kpi-blue">
+          <div class="kpi-icon">⚡</div>
+          <div class="kpi-data">
+            <div class="kpi-value">23,4</div>
+            <div class="kpi-label">@/ha Produtividade</div>
+          </div>
+          <div class="kpi-trend up">▲ 5%</div>
+        </div>
+        <div class="kpi-card kpi-gold">
+          <div class="kpi-icon">💰</div>
+          <div class="kpi-data">
+            <div class="kpi-value">R$148</div>
+            <div class="kpi-label">Cotação Arroba</div>
+          </div>
+          <div class="kpi-trend up">▲ Alta</div>
+        </div>
+      </div>
+
+      <!-- LINHA DO TEMPO ANIMADA -->
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h2>Ciclo Atual da Lavoura</h2>
+          <span class="timeline-badge">Talhão Norte — Plantio: 10/11/2025</span>
+        </div>
+        <div class="timeline-track">
+          <div class="tl-step done">
+            <div class="tl-dot"><span>🌱</span></div>
+            <div class="tl-label">Semeadura</div>
+            <div class="tl-date">Nov/25</div>
+          </div>
+          <div class="tl-line done"></div>
+          <div class="tl-step done">
+            <div class="tl-dot"><span>🌿</span></div>
+            <div class="tl-label">Emergência</div>
+            <div class="tl-date">Nov/25</div>
+          </div>
+          <div class="tl-line done"></div>
+          <div class="tl-step done">
+            <div class="tl-dot"><span>🌳</span></div>
+            <div class="tl-label">Crescimento</div>
+            <div class="tl-date">Dez/25</div>
+          </div>
+          <div class="tl-line done"></div>
+          <div class="tl-step done">
+            <div class="tl-dot"><span>🌼</span></div>
+            <div class="tl-label">Florescimento</div>
+            <div class="tl-date">Jan/26</div>
+          </div>
+          <div class="tl-line done"></div>
+          <div class="tl-step active">
+            <div class="tl-dot pulse"><span>☁️</span></div>
+            <div class="tl-label">Capulho</div>
+            <div class="tl-date">Atual</div>
+          </div>
+          <div class="tl-line pending"></div>
+          <div class="tl-step pending">
+            <div class="tl-dot"><span>🚜</span></div>
+            <div class="tl-label">Colheita</div>
+            <div class="tl-date">Jun/26</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEMÁFOROS + CLIMA -->
+      <div class="dash-row">
+        <div class="semaforo-card">
+          <h2>Indicadores de Campo</h2>
+          <div class="semaforo-list">
+            <div class="semaforo-item">
+              <div class="sem-dot green"></div>
+              <div class="sem-info">
+                <strong>Umidade do Solo</strong>
+                <span>Ideal — 68%</span>
+              </div>
+              <div class="sem-status green-txt">●● ÓTIMO</div>
+            </div>
+            <div class="semaforo-item">
+              <div class="sem-dot yellow"></div>
+              <div class="sem-info">
+                <strong>Temperatura</strong>
+                <span>Atenção — 33°C</span>
+              </div>
+              <div class="sem-status yellow-txt">●● ALERTA</div>
+            </div>
+            <div class="semaforo-item">
+              <div class="sem-dot green"></div>
+              <div class="sem-info">
+                <strong>Fase de Colheita</strong>
+                <span>Capulho formado</span>
+              </div>
+              <div class="sem-status green-txt">●● ÓTIMO</div>
+            </div>
+            <div class="semaforo-item">
+              <div class="sem-dot red"></div>
+              <div class="sem-info">
+                <strong>Chuva Prevista</strong>
+                <span>Risco de geada nas próximas 48h</span>
+              </div>
+              <div class="sem-status red-txt">●● RISCO</div>
+            </div>
+            <div class="semaforo-item">
+              <div class="sem-dot green"></div>
+              <div class="sem-info">
+                <strong>Estoque de Insumos</strong>
+                <span>Fertilizante: 3.200 kg</span>
+              </div>
+              <div class="sem-status green-txt">●● ÓTIMO</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h2>Resumo Financeiro</h2>
+          <div class="fin-row">
+            <span>Receita Prevista</span>
+            <strong class="pos">R$ 14.800.000</strong>
+          </div>
+          <div class="fin-row">
+            <span>Custo Total</span>
+            <strong class="neg">R$ 8.200.000</strong>
+          </div>
+          <div class="fin-divider"></div>
+          <div class="fin-row big">
+            <span>Lucro Estimado</span>
+            <strong class="pos">R$ 6.600.000</strong>
+          </div>
+          <div class="fin-bar-wrap">
+            <div class="fin-label-row"><span>Margem</span><span>44,6%</span></div>
+            <div class="fin-bar"><div class="fin-fill" style="width:44.6%"></div></div>
+          </div>
+          <div class="fin-row">
+            <span>Custo/ha</span>
+            <strong>R$ 1.916</strong>
+          </div>
+          <div class="fin-row">
+            <span>Custo/@</span>
+            <strong>R$ 81,88</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALERTAS -->
+      <div class="alertas-card">
+        <h2>⚠ Alertas Recentes</h2>
+        <div class="alerta-list">
+          <div class="alerta red-alerta">
+            <div class="alerta-icon">🌡️</div>
+            <div class="alerta-text">
+              <strong>Risco de geada</strong> — Talhão Sul. Temperatura prevista: 2°C nas próximas 48h.
+            </div>
+            <div class="alerta-time">Hoje</div>
+          </div>
+          <div class="alerta yellow-alerta">
+            <div class="alerta-icon">🐛</div>
+            <div class="alerta-text">
+              <strong>Ocorrência de lagarta</strong> — Talhão Leste. Requer vistoria em até 3 dias.
+            </div>
+            <div class="alerta-time">Ontem</div>
+          </div>
+          <div class="alerta yellow-alerta">
+            <div class="alerta-icon">🛢️</div>
+            <div class="alerta-text">
+              <strong>Manutenção pendente</strong> — Colheitadeira #2. Troca de óleo vencida.
+            </div>
+            <div class="alerta-time">3 dias</div>
+          </div>
+          <div class="alerta green-alerta">
+            <div class="alerta-icon">✅</div>
+            <div class="alerta-text">
+              <strong>Adubação concluída</strong> — Talhão Norte e Centro. Aplicação registrada.
+            </div>
+            <div class="alerta-time">4 dias</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: TALHÕES
+    ============================= -->
+    <section id="talhoes" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Controle de Talhões</h1>
+        <p class="section-sub">Mapeamento e status de cada área da propriedade</p>
+      </div>
+
+      <div class="mapa-container">
+        <div class="mapa-area">
+          <h2>Mapa da Propriedade</h2>
+          <div class="mapa-svg-wrap">
+            <svg class="mapa-svg" viewBox="0 0 600 400">
+              <!-- Fundo -->
+              <rect width="600" height="400" fill="#0f1f0f" rx="8"/>
+              <!-- Grade sutil -->
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a2e1a" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="600" height="400" fill="url(#grid)"/>
+              <!-- Talhão Norte -->
+              <polygon points="80,30 300,30 280,170 60,170" fill="#2d5a1b" stroke="#5cb85c" stroke-width="2" class="talhao-poly" onclick="selectTalhao('Norte')"/>
+              <text x="175" y="105" fill="#a8d5a2" font-size="14" font-family="Space Grotesk" text-anchor="middle" font-weight="600">NORTE</text>
+              <text x="175" y="122" fill="#6aaa6a" font-size="11" font-family="Space Grotesk" text-anchor="middle">1.200 ha</text>
+              <!-- Talhão Leste -->
+              <polygon points="310,30 550,50 530,200 290,180" fill="#3a6b1f" stroke="#5cb85c" stroke-width="2" class="talhao-poly" onclick="selectTalhao('Leste')"/>
+              <text x="420" y="115" fill="#a8d5a2" font-size="14" font-family="Space Grotesk" text-anchor="middle" font-weight="600">LESTE</text>
+              <text x="420" y="132" fill="#6aaa6a" font-size="11" font-family="Space Grotesk" text-anchor="middle">980 ha</text>
+              <!-- Talhão Centro -->
+              <polygon points="60,185 285,185 265,300 50,295" fill="#5b8a2c" stroke="#c8e66c" stroke-width="2" class="talhao-poly talhao-active" onclick="selectTalhao('Centro')"/>
+              <text x="165" y="248" fill="#e8f5a2" font-size="14" font-family="Space Grotesk" text-anchor="middle" font-weight="600">CENTRO</text>
+              <text x="165" y="265" fill="#c4d870" font-size="11" font-family="Space Grotesk" text-anchor="middle">1.100 ha ★</text>
+              <!-- Talhão Sul -->
+              <polygon points="55,305 270,310 250,380 40,375" fill="#2d5a1b" stroke="#5cb85c" stroke-width="2" class="talhao-poly" onclick="selectTalhao('Sul')"/>
+              <text x="148" y="350" fill="#a8d5a2" font-size="14" font-family="Space Grotesk" text-anchor="middle" font-weight="600">SUL</text>
+              <text x="148" y="367" fill="#6aaa6a" font-size="11" font-family="Space Grotesk" text-anchor="middle">640 ha</text>
+              <!-- Talhão Oeste -->
+              <polygon points="290,200 540,215 520,370 275,360" fill="#1e4a10" stroke="#5cb85c" stroke-width="2" class="talhao-poly" onclick="selectTalhao('Oeste')"/>
+              <text x="410" y="290" fill="#a8d5a2" font-size="14" font-family="Space Grotesk" text-anchor="middle" font-weight="600">OESTE</text>
+              <text x="410" y="307" fill="#6aaa6a" font-size="11" font-family="Space Grotesk" text-anchor="middle">360 ha</text>
+              <!-- Legenda -->
+              <rect x="10" y="10" width="12" height="12" fill="#5b8a2c" rx="2"/>
+              <text x="27" y="20" fill="#a8d5a2" font-size="10" font-family="Space Grotesk">Fase: Capulho</text>
+              <rect x="10" y="27" width="12" height="12" fill="#2d5a1b" rx="2"/>
+              <text x="27" y="37" fill="#a8d5a2" font-size="10" font-family="Space Grotesk">Fase: Florescimento</text>
+            </svg>
+          </div>
+          <p class="mapa-hint">Clique em um talhão para ver detalhes</p>
+        </div>
+
+        <div class="talhao-info" id="talhaoInfo">
+          <h2>Detalhes do Talhão</h2>
+          <div class="talhao-select-hint">← Selecione um talhão no mapa</div>
+        </div>
+      </div>
+
+      <h2 class="table-title">Todos os Talhões</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Talhão</th>
+              <th>Área (ha)</th>
+              <th>Variedade</th>
+              <th>Data Plantio</th>
+              <th>Fase Atual</th>
+              <th>Dias p/ Colheita</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Norte</strong></td>
+              <td>1.200</td>
+              <td>FM 985 GLTP</td>
+              <td>10/11/2025</td>
+              <td>Capulho Aberto ☁️</td>
+              <td>8 dias</td>
+              <td><span class="badge badge-green">Colher em breve</span></td>
+            </tr>
+            <tr>
+              <td><strong>Leste</strong></td>
+              <td>980</td>
+              <td>IMA CD 6001</td>
+              <td>20/11/2025</td>
+              <td>Florescimento 🌼</td>
+              <td>45 dias</td>
+              <td><span class="badge badge-blue">Em andamento</span></td>
+            </tr>
+            <tr>
+              <td><strong>Centro ★</strong></td>
+              <td>1.100</td>
+              <td>FM 985 GLTP</td>
+              <td>05/11/2025</td>
+              <td>Capulho Aberto ☁️</td>
+              <td>5 dias</td>
+              <td><span class="badge badge-amber">Colher urgente</span></td>
+            </tr>
+            <tr>
+              <td><strong>Sul</strong></td>
+              <td>640</td>
+              <td>DP 1536 B3XF</td>
+              <td>01/12/2025</td>
+              <td>Formação Capulho</td>
+              <td>28 dias</td>
+              <td><span class="badge badge-blue">Em andamento</span></td>
+            </tr>
+            <tr>
+              <td><strong>Oeste</strong></td>
+              <td>360</td>
+              <td>IMA CD 6001</td>
+              <td>15/12/2025</td>
+              <td>Florescimento 🌼</td>
+              <td>60 dias</td>
+              <td><span class="badge badge-blue">Em andamento</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: CICLO DA LAVOURA
+    ============================= -->
+    <section id="ciclo" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Ciclo da Lavoura</h1>
+        <p class="section-sub">Detector automático de fase e previsão de colheita</p>
+      </div>
+
+      <div class="ciclo-container">
+        <div class="ciclo-form-card">
+          <h2>Calcular Fase do Algodão</h2>
+          <div class="form-group">
+            <label>Data de Plantio</label>
+            <input type="date" id="dataCicloPlantio" class="input-field">
+          </div>
+          <div class="form-group">
+            <label>Talhão</label>
+            <select id="cicloTalhao" class="input-field">
+              <option>Selecione...</option>
+              <option>Talhão Norte</option>
+              <option>Talhão Leste</option>
+              <option>Talhão Centro</option>
+              <option>Talhão Sul</option>
+              <option>Talhão Oeste</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Variedade</label>
+            <input type="text" id="cicloVariedade" class="input-field" placeholder="Ex: FM 985 GLTP">
+          </div>
+          <button class="btn-primary" onclick="calcularCiclo()">Calcular Ciclo</button>
+
+          <div id="resultadoCiclo" class="ciclo-result hidden">
+            <div class="resultado-fase" id="faseAtualTexto">--</div>
+            <div class="resultado-dias">
+              <span id="diasPlantio">0</span> dias após plantio
+            </div>
+            <div class="resultado-restante" id="diasRestantesTexto">--</div>
+            <div class="semaforo-ciclo" id="semaforoCiclo">--</div>
+          </div>
+        </div>
+
+        <div class="ciclo-timeline-card">
+          <h2>Fases do Algodão</h2>
+          <div class="fases-verticais">
+            <div class="fase-item" id="faseEmergencia">
+              <div class="fase-icon">🌱</div>
+              <div class="fase-desc">
+                <strong>Emergência</strong>
+                <span>0–15 dias</span>
+                <p>Germinação e surgimento das primeiras folhas cotiledonares.</p>
+              </div>
+              <div class="fase-bar-wrap"><div class="fase-bar" style="width:15%"></div></div>
+            </div>
+            <div class="fase-item" id="faseCrescimento">
+              <div class="fase-icon">🌿</div>
+              <div class="fase-desc">
+                <strong>Crescimento Vegetativo</strong>
+                <span>15–50 dias</span>
+                <p>Desenvolvimento de folhas, caule e ramificações.</p>
+              </div>
+              <div class="fase-bar-wrap"><div class="fase-bar" style="width:30%"></div></div>
+            </div>
+            <div class="fase-item" id="faseFloracao">
+              <div class="fase-icon">🌼</div>
+              <div class="fase-desc">
+                <strong>Florescimento</strong>
+                <span>50–90 dias</span>
+                <p>Abertura das flores, polinização e início da formação de capulhos.</p>
+              </div>
+              <div class="fase-bar-wrap"><div class="fase-bar" style="width:55%"></div></div>
+            </div>
+            <div class="fase-item" id="faseCapulho">
+              <div class="fase-icon">☁️</div>
+              <div class="fase-desc">
+                <strong>Formação do Capulho</strong>
+                <span>90–140 dias</span>
+                <p>Crescimento e maturação da fibra dentro do capulho.</p>
+              </div>
+              <div class="fase-bar-wrap"><div class="fase-bar" style="width:75%"></div></div>
+            </div>
+            <div class="fase-item" id="faseAbertura">
+              <div class="fase-icon">🤍</div>
+              <div class="fase-desc">
+                <strong>Abertura / Maturação</strong>
+                <span>140–170 dias</span>
+                <p>Capulho aberto com fibra exposta. Pronto para colheita.</p>
+              </div>
+              <div class="fase-bar-wrap"><div class="fase-bar" style="width:90%"></div></div>
+            </div>
+            <div class="fase-item" id="faseColheita">
+              <div class="fase-icon">🚜</div>
+              <div class="fase-desc">
+                <strong>Colheita</strong>
+                <span>170+ dias</span>
+                <p>Operação de colheita mecânica. Umidade ideal abaixo de 10%.</p>
+              </div>
+              <div class="fase-bar-wrap"><div class="fase-bar" style="width:100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diagnóstico da Colheita -->
+      <div class="diagnostico-card">
+        <h2>🔍 Diagnóstico Visual da Lavoura</h2>
+        <p class="diag-sub">Responda às perguntas abaixo para saber se sua lavoura está pronta para colheita.</p>
+        <div class="diag-grid">
+          <div class="diag-question">
+            <label>O capulho está aberto?</label>
+            <div class="diag-options">
+              <label class="diag-opt"><input type="radio" name="q1" value="sim"> Sim</label>
+              <label class="diag-opt"><input type="radio" name="q1" value="nao"> Não</label>
+            </div>
+          </div>
+          <div class="diag-question">
+            <label>A fibra está branca e brilhante?</label>
+            <div class="diag-options">
+              <label class="diag-opt"><input type="radio" name="q2" value="sim"> Sim</label>
+              <label class="diag-opt"><input type="radio" name="q2" value="nao"> Não</label>
+            </div>
+          </div>
+          <div class="diag-question">
+            <label>Mais de 50% dos capulhos estão abertos?</label>
+            <div class="diag-options">
+              <label class="diag-opt"><input type="radio" name="q3" value="sim"> Sim</label>
+              <label class="diag-opt"><input type="radio" name="q3" value="nao"> Não</label>
+            </div>
+          </div>
+          <div class="diag-question">
+            <label>Folhas caindo naturalmente?</label>
+            <div class="diag-options">
+              <label class="diag-opt"><input type="radio" name="q4" value="sim"> Sim</label>
+              <label class="diag-opt"><input type="radio" name="q4" value="nao"> Não</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="diagnosticarColheita()">Ver Diagnóstico</button>
+        <div id="resultDiagnostico" class="diag-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: DIÁRIO DA LAVOURA
+    ============================= -->
+    <section id="diario" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Diário da Lavoura</h1>
+        <p class="section-sub">Registro histórico de todas as atividades de campo</p>
+      </div>
+
+      <div class="diario-container">
+        <div class="diario-form">
+          <h2>Novo Registro</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Data</label>
+              <input type="date" id="diarioData" class="input-field">
+            </div>
+            <div class="form-group">
+              <label>Talhão</label>
+              <select id="diarioTalhao" class="input-field">
+                <option>Selecione...</option>
+                <option>Norte</option>
+                <option>Leste</option>
+                <option>Centro</option>
+                <option>Sul</option>
+                <option>Oeste</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tipo de Atividade</label>
+              <select id="diarioTipo" class="input-field">
+                <option>Selecione...</option>
+                <option>🧪 Aplicação de Defensivos</option>
+                <option>🌿 Adubação</option>
+                <option>💧 Irrigação</option>
+                <option>🐛 Ocorrência de Praga</option>
+                <option>🦠 Doença Detectada</option>
+                <option>🌧 Chuva</option>
+                <option>🚜 Operação de Máquina</option>
+                <option>📋 Visita Técnica</option>
+                <option>📝 Observação Geral</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Quantidade / Volume</label>
+              <input type="text" id="diarioQtd" class="input-field" placeholder="Ex: 2,5 L/ha">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Produto / Observação</label>
+            <input type="text" id="diarioProduto" class="input-field" placeholder="Ex: Roundup Energy 2,0 L/ha">
+          </div>
+          <div class="form-group">
+            <label>Descrição Detalhada</label>
+            <textarea id="diarioDesc" class="input-field textarea-field" placeholder="Descreva a atividade realizada..."></textarea>
+          </div>
+          <button class="btn-primary" onclick="addDiarioEntry()">+ Registrar Atividade</button>
+        </div>
+
+        <div class="diario-historico">
+          <h2>Histórico de Atividades</h2>
+          <div class="historico-filter">
+            <button class="filter-btn active" onclick="filterDiario('Todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filterDiario('Adubação', this)">Adubação</button>
+            <button class="filter-btn" onclick="filterDiario('Defensivos', this)">Defensivos</button>
+            <button class="filter-btn" onclick="filterDiario('Irrigação', this)">Irrigação</button>
+            <button class="filter-btn" onclick="filterDiario('Pragas', this)">Pragas</button>
+          </div>
+          <div id="diarioList" class="diario-list">
+            <div class="diario-entry" data-tipo="Adubação">
+              <div class="de-date">08/06/2026</div>
+              <div class="de-icon">🌿</div>
+              <div class="de-body">
+                <strong>Adubação — Talhão Norte</strong>
+                <span>Ureia 200 kg/ha aplicada via distribuidor</span>
+              </div>
+              <div class="de-badge badge-blue">Adubação</div>
+            </div>
+            <div class="diario-entry" data-tipo="Defensivos">
+              <div class="de-date">05/06/2026</div>
+              <div class="de-icon">🧪</div>
+              <div class="de-body">
+                <strong>Aplicação de Herbicida — Talhão Centro</strong>
+                <span>Glifosato 3 L/ha. Clima: sem vento, temperatura 24°C.</span>
+              </div>
+              <div class="de-badge badge-amber">Defensivos</div>
+            </div>
+            <div class="diario-entry" data-tipo="Irrigação">
+              <div class="de-date">03/06/2026</div>
+              <div class="de-icon">💧</div>
+              <div class="de-body">
+                <strong>Irrigação — Talhão Sul e Oeste</strong>
+                <span>Lâmina de 25 mm. Pivot funcionando por 6h.</span>
+              </div>
+              <div class="de-badge badge-blue">Irrigação</div>
+            </div>
+            <div class="diario-entry" data-tipo="Pragas">
+              <div class="de-date">01/06/2026</div>
+              <div class="de-icon">🐛</div>
+              <div class="de-body">
+                <strong>Lagarta Rosada — Talhão Leste</strong>
+                <span>Nível: médio. Monitoramento iniciado. Tratamento recomendado.</span>
+              </div>
+              <div class="de-badge badge-red">Pragas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: PRAGAS E DOENÇAS
+    ============================= -->
+    <section id="pragas" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Pragas e Doenças</h1>
+        <p class="section-sub">Monitoramento, diagnóstico e histórico de ocorrências</p>
+      </div>
+
+      <div class="pragas-grid">
+        <div class="praga-card-info">
+          <div class="praga-emoji">🐛</div>
+          <div class="praga-nome">Lagarta Rosada</div>
+          <div class="praga-nivel red-nivel">● CRÍTICO</div>
+          <div class="praga-talhao">Talhão: Leste</div>
+          <div class="praga-rec">Aplicar Bacillus thuringiensis ou inseticidas piretróides.</div>
+        </div>
+        <div class="praga-card-info">
+          <div class="praga-emoji">🦟</div>
+          <div class="praga-nome">Mosca Branca</div>
+          <div class="praga-nivel yellow-nivel">● ATENÇÃO</div>
+          <div class="praga-talhao">Talhão: Norte</div>
+          <div class="praga-rec">Monitorar densidade. Usar óleo mineral ou imidacloprida se necessário.</div>
+        </div>
+        <div class="praga-card-info">
+          <div class="praga-emoji">🕷️</div>
+          <div class="praga-nome">Ácaro Rajado</div>
+          <div class="praga-nivel green-nivel">● CONTROLADO</div>
+          <div class="praga-talhao">Talhão: Sul</div>
+          <div class="praga-rec">Aplicação realizada. Monitorar reinfestação em 15 dias.</div>
+        </div>
+        <div class="praga-card-info">
+          <div class="praga-emoji">🦗</div>
+          <div class="praga-nome">Tripes</div>
+          <div class="praga-nivel yellow-nivel">● ATENÇÃO</div>
+          <div class="praga-talhao">Talhão: Centro</div>
+          <div class="praga-rec">Usar armadilhas azuis para monitoramento. Aplicar espinosade.</div>
+        </div>
+      </div>
+
+      <div class="diag-card-pragas">
+        <h2>🔍 Diagnóstico Rápido de Sintomas</h2>
+        <div class="sintoma-grid">
+          <div class="sintoma-item">
+            <label class="sintoma-check">
+              <input type="checkbox" id="s1"> Manchas amarelas nas folhas
+            </label>
+          </div>
+          <div class="sintoma-item">
+            <label class="sintoma-check">
+              <input type="checkbox" id="s2"> Folhas com furos
+            </label>
+          </div>
+          <div class="sintoma-item">
+            <label class="sintoma-check">
+              <input type="checkbox" id="s3"> Fibra escurecida
+            </label>
+          </div>
+          <div class="sintoma-item">
+            <label class="sintoma-check">
+              <input type="checkbox" id="s4"> Larvas no capulho
+            </label>
+          </div>
+          <div class="sintoma-item">
+            <label class="sintoma-check">
+              <input type="checkbox" id="s5"> Murcha repentina
+            </label>
+          </div>
+          <div class="sintoma-item">
+            <label class="sintoma-check">
+              <input type="checkbox" id="s6"> Presença de teia
+            </label>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="diagnosticarPraga()">Diagnosticar</button>
+        <div id="resultPraga" class="diag-result hidden"></div>
+      </div>
+
+      <div class="novo-registro-praga">
+        <h2>Registrar Nova Ocorrência</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Praga / Doença</label>
+            <input type="text" id="pragaNome" class="input-field" placeholder="Nome da praga ou doença">
+          </div>
+          <div class="form-group">
+            <label>Talhão</label>
+            <select id="pragaTalhao" class="input-field">
+              <option>Selecione...</option>
+              <option>Norte</option><option>Leste</option><option>Centro</option><option>Sul</option><option>Oeste</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Nível de Infestação</label>
+            <select id="pragaNivel" class="input-field">
+              <option>Baixo</option><option>Médio</option><option>Alto</option><option>Crítico</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Observações</label>
+          <textarea id="pragaObs" class="input-field textarea-field" placeholder="Descreva os sintomas observados..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="addPraga()">Registrar Ocorrência</button>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: CLIMA
+    ============================= -->
+    <section id="clima" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Clima e Tempo</h1>
+        <p class="section-sub">Condições meteorológicas e alertas para sua região</p>
+      </div>
+
+      <div class="clima-hoje">
+        <div class="clima-principal">
+          <div class="clima-temp">33°C</div>
+          <div class="clima-icon-big">⛅</div>
+          <div class="clima-desc">Parcialmente nublado</div>
+          <div class="clima-local">Mato Grosso, MT — 12/06/2026</div>
+        </div>
+        <div class="clima-detalhes">
+          <div class="clima-detalhe-item">
+            <span class="cd-label">Umidade</span>
+            <span class="cd-value">62%</span>
+          </div>
+          <div class="clima-detalhe-item">
+            <span class="cd-label">Vento</span>
+            <span class="cd-value">18 km/h NE</span>
+          </div>
+          <div class="clima-detalhe-item">
+            <span class="cd-label">Chuva Acum.</span>
+            <span class="cd-value">14 mm / mês</span>
+          </div>
+          <div class="clima-detalhe-item">
+            <span class="cd-label">Evapotran.</span>
+            <span class="cd-value">4,8 mm/dia</span>
+          </div>
+          <div class="clima-detalhe-item">
+            <span class="cd-label">Pressão</span>
+            <span class="cd-value">1.013 hPa</span>
+          </div>
+          <div class="clima-detalhe-item">
+            <span class="cd-label">UV</span>
+            <span class="cd-value">Alto — 8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="previsao-semana">
+        <h2>Previsão dos Próximos 7 Dias</h2>
+        <div class="previsao-grid">
+          <div class="prev-dia atual">
+            <div class="prev-d">Hoje</div>
+            <div class="prev-icon">⛅</div>
+            <div class="prev-temp">33° / 21°</div>
+            <div class="prev-chuva">5%</div>
+          </div>
+          <div class="prev-dia">
+            <div class="prev-d">Sex</div>
+            <div class="prev-icon">☀️</div>
+            <div class="prev-temp">35° / 22°</div>
+            <div class="prev-chuva">0%</div>
+          </div>
+          <div class="prev-dia">
+            <div class="prev-d">Sáb</div>
+            <div class="prev-icon">🌤️</div>
+            <div class="prev-temp">34° / 23°</div>
+            <div class="prev-chuva">10%</div>
+          </div>
+          <div class="prev-dia">
+            <div class="prev-d">Dom</div>
+            <div class="prev-icon">🌧️</div>
+            <div class="prev-temp">28° / 20°</div>
+            <div class="prev-chuva">75% ⚠</div>
+          </div>
+          <div class="prev-dia">
+            <div class="prev-d">Seg</div>
+            <div class="prev-icon">🌩️</div>
+            <div class="prev-temp">26° / 18°</div>
+            <div class="prev-chuva">85% ⚠</div>
+          </div>
+          <div class="prev-dia">
+            <div class="prev-d">Ter</div>
+            <div class="prev-icon">⛅</div>
+            <div class="prev-temp">30° / 19°</div>
+            <div class="prev-chuva">20%</div>
+          </div>
+          <div class="prev-dia">
+            <div class="prev-d">Qua</div>
+            <div class="prev-icon">☀️</div>
+            <div class="prev-temp">34° / 21°</div>
+            <div class="prev-chuva">5%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alertas-clima">
+        <h2>⚠ Alertas Meteorológicos</h2>
+        <div class="alerta red-alerta">
+          <div class="alerta-icon">🌧️</div>
+          <div class="alerta-text"><strong>Chuva forte prevista</strong> — Domingo e segunda-feira. Risco de acamamento e perda de qualidade da fibra. Antecipar colheita nas áreas maduras.</div>
+        </div>
+        <div class="alerta yellow-alerta">
+          <div class="alerta-icon">☀️</div>
+          <div class="alerta-text"><strong>Onda de calor</strong> — Quinta e sexta-feira. Temperatura acima de 35°C. Aumentar irrigação nos pivôs ativos.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: CUSTOS
+    ============================= -->
+    <section id="custos" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Gestão de Custos</h1>
+        <p class="section-sub">Controle detalhado de todos os insumos e despesas da safra</p>
+      </div>
+
+      <div class="custos-container">
+        <div class="custo-form-card">
+          <h2>Registrar Despesa</h2>
+          <div class="form-group">
+            <label>Categoria</label>
+            <select id="custoCategoria" class="input-field">
+              <option>Selecione...</option>
+              <option>🌱 Sementes</option>
+              <option>🧪 Defensivos</option>
+              <option>🌿 Fertilizantes</option>
+              <option>⛽ Combustível</option>
+              <option>👷 Funcionários</option>
+              <option>🚜 Máquinas</option>
+              <option>💧 Irrigação</option>
+              <option>📦 Outros</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Produto / Descrição</label>
+              <input type="text" id="custoProduto" class="input-field" placeholder="Ex: Ureia 46%">
+            </div>
+            <div class="form-group">
+              <label>Valor (R$)</label>
+              <input type="number" id="custoValor" class="input-field" placeholder="0,00">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Talhão</label>
+              <select id="custoTalhao" class="input-field">
+                <option>Geral</option>
+                <option>Norte</option><option>Leste</option><option>Centro</option><option>Sul</option><option>Oeste</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Data</label>
+              <input type="date" id="custoData" class="input-field">
+            </div>
+          </div>
+          <button class="btn-primary" onclick="addCusto()">Registrar</button>
+        </div>
+
+        <div class="custo-resumo">
+          <h2>Resumo de Custos — Safra 2025/26</h2>
+          <div class="custo-chart">
+            <div class="custo-bar-item">
+              <span class="cb-label">Fertilizantes</span>
+              <div class="cb-wrap"><div class="cb-fill" style="width:28%"></div></div>
+              <span class="cb-val">R$ 2.296.000</span>
+            </div>
+            <div class="custo-bar-item">
+              <span class="cb-label">Defensivos</span>
+              <div class="cb-wrap"><div class="cb-fill fill-amber" style="width:22%"></div></div>
+              <span class="cb-val">R$ 1.804.000</span>
+            </div>
+            <div class="custo-bar-item">
+              <span class="cb-label">Máquinas</span>
+              <div class="cb-wrap"><div class="cb-fill fill-blue" style="width:18%"></div></div>
+              <span class="cb-val">R$ 1.476.000</span>
+            </div>
+            <div class="custo-bar-item">
+              <span class="cb-label">Funcionários</span>
+              <div class="cb-wrap"><div class="cb-fill fill-purple" style="width:15%"></div></div>
+              <span class="cb-val">R$ 1.230.000</span>
+            </div>
+            <div class="custo-bar-item">
+              <span class="cb-label">Combustível</span>
+              <div class="cb-wrap"><div class="cb-fill fill-red" style="width:10%"></div></div>
+              <span class="cb-val">R$ 820.000</span>
+            </div>
+            <div class="custo-bar-item">
+              <span class="cb-label">Sementes</span>
+              <div class="cb-wrap"><div class="cb-fill" style="width:7%"></div></div>
+              <span class="cb-val">R$ 574.000</span>
+            </div>
+          </div>
+          <div class="custo-total-row">
+            <span>CUSTO TOTAL</span>
+            <strong>R$ 8.200.000</strong>
+          </div>
+          <div class="custo-total-row">
+            <span>Custo / hectare</span>
+            <strong>R$ 1.916/ha</strong>
+          </div>
+          <div class="custo-total-row">
+            <span>Custo / arroba</span>
+            <strong>R$ 81,88/@</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: CALCULADORA DE LUCRO
+    ============================= -->
+    <section id="lucro" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Calculadora de Lucro</h1>
+        <p class="section-sub">Simulação completa de rentabilidade da safra</p>
+      </div>
+
+      <div class="lucro-container">
+        <div class="lucro-form">
+          <h2>Dados da Safra</h2>
+          <div class="form-group">
+            <label>Área total plantada (ha)</label>
+            <input type="number" id="lucroArea" class="input-field" value="4280" placeholder="Ex: 4280">
+          </div>
+          <div class="form-group">
+            <label>Produtividade esperada (@/ha)</label>
+            <input type="number" id="lucroProducao" class="input-field" value="23.4" step="0.1" placeholder="Ex: 23.4">
+          </div>
+          <div class="form-group">
+            <label>Preço da arroba (R$)</label>
+            <input type="number" id="lucroPrecoBruto" class="input-field" value="148" step="0.5" placeholder="Ex: 148">
+          </div>
+          <div class="form-group">
+            <label>Custo total da safra (R$)</label>
+            <input type="number" id="lucroCusto" class="input-field" value="8200000" placeholder="Ex: 8200000">
+          </div>
+          <button class="btn-primary" onclick="calcularLucro()">Calcular Lucro</button>
+        </div>
+
+        <div class="lucro-resultado" id="resultadoLucro">
+          <h2>Resultado Estimado</h2>
+          <div class="lucro-kpi-grid">
+            <div class="lucro-kpi">
+              <span class="lk-label">Total de Arrobas</span>
+              <span class="lk-value" id="lTotalArrobas">100.152 @</span>
+            </div>
+            <div class="lucro-kpi">
+              <span class="lk-label">Receita Bruta</span>
+              <span class="lk-value green-val" id="lReceita">R$ 14.822.496</span>
+            </div>
+            <div class="lucro-kpi">
+              <span class="lk-label">Custo Total</span>
+              <span class="lk-value red-val" id="lCusto">R$ 8.200.000</span>
+            </div>
+            <div class="lucro-kpi destaque">
+              <span class="lk-label">LUCRO LÍQUIDO</span>
+              <span class="lk-value green-val big-val" id="lLucro">R$ 6.622.496</span>
+            </div>
+            <div class="lucro-kpi">
+              <span class="lk-label">Margem</span>
+              <span class="lk-value" id="lMargem">44,7%</span>
+            </div>
+            <div class="lucro-kpi">
+              <span class="lk-label">ROI</span>
+              <span class="lk-value green-val" id="lRoi">80,8%</span>
+            </div>
+          </div>
+          <div class="margem-bar-wrap">
+            <div class="margem-labels">
+              <span>Custo</span><span>Lucro</span>
+            </div>
+            <div class="margem-bar">
+              <div class="margem-custo" id="barCusto" style="width:55.3%"></div>
+              <div class="margem-lucro" id="barLucro" style="width:44.7%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: ESTOQUE
+    ============================= -->
+    <section id="estoque" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Controle de Estoque</h1>
+        <p class="section-sub">Algodão armazenado e insumos disponíveis</p>
+      </div>
+
+      <div class="estoque-grid">
+        <div class="estoque-card destaque-estoque">
+          <h2>🏭 Algodão em Armazém</h2>
+          <div class="estoque-big">12.400 @</div>
+          <div class="estoque-sub">≈ 186 toneladas</div>
+          <div class="estoque-detalhe">
+            <div class="ed-row"><span>Valor de Mercado</span><strong>R$ 1.835.200</strong></div>
+            <div class="ed-row"><span>Classificação</span><strong>Tipo 3 — HVI</strong></div>
+            <div class="ed-row"><span>Umidade</span><strong>8,2% ✓</strong></div>
+            <div class="ed-row"><span>Armazém</span><strong>Graneleiro A</strong></div>
+          </div>
+        </div>
+
+        <div class="insumos-card">
+          <h2>📦 Insumos Disponíveis</h2>
+          <div class="insumo-list">
+            <div class="insumo-item">
+              <div class="insumo-nome">Ureia 46%</div>
+              <div class="insumo-bar-wrap">
+                <div class="insumo-bar" style="width:65%"></div>
+              </div>
+              <div class="insumo-qtd">3.200 kg</div>
+              <div class="insumo-status ok">OK</div>
+            </div>
+            <div class="insumo-item">
+              <div class="insumo-nome">MAP (Fosfato)</div>
+              <div class="insumo-bar-wrap">
+                <div class="insumo-bar bar-amber" style="width:30%"></div>
+              </div>
+              <div class="insumo-qtd">800 kg</div>
+              <div class="insumo-status alerta">BAIXO</div>
+            </div>
+            <div class="insumo-item">
+              <div class="insumo-nome">Glifosato</div>
+              <div class="insumo-bar-wrap">
+                <div class="insumo-bar" style="width:80%"></div>
+              </div>
+              <div class="insumo-qtd">400 L</div>
+              <div class="insumo-status ok">OK</div>
+            </div>
+            <div class="insumo-item">
+              <div class="insumo-nome">Deltametrina</div>
+              <div class="insumo-bar-wrap">
+                <div class="insumo-bar bar-red" style="width:10%"></div>
+              </div>
+              <div class="insumo-qtd">50 L</div>
+              <div class="insumo-status critico">REPOR!</div>
+            </div>
+            <div class="insumo-item">
+              <div class="insumo-nome">Sementes FM 985</div>
+              <div class="insumo-bar-wrap">
+                <div class="insumo-bar" style="width:55%"></div>
+              </div>
+              <div class="insumo-qtd">1.100 kg</div>
+              <div class="insumo-status ok">OK</div>
+            </div>
+            <div class="insumo-item">
+              <div class="insumo-nome">Óleo Diesel</div>
+              <div class="insumo-bar-wrap">
+                <div class="insumo-bar bar-amber" style="width:35%"></div>
+              </div>
+              <div class="insumo-qtd">3.500 L</div>
+              <div class="insumo-status alerta">BAIXO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-estoque-form">
+        <h2>Registrar Movimentação</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Produto</label>
+            <input type="text" class="input-field" id="estProduto" placeholder="Nome do produto">
+          </div>
+          <div class="form-group">
+            <label>Tipo</label>
+            <select class="input-field" id="estTipo">
+              <option>Entrada</option>
+              <option>Saída</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Quantidade</label>
+            <input type="text" class="input-field" id="estQtd" placeholder="Ex: 500 kg">
+          </div>
+          <div class="form-group">
+            <label>Data</label>
+            <input type="date" class="input-field" id="estData">
+          </div>
+        </div>
+        <button class="btn-primary" onclick="addEstoque()">Registrar</button>
+        <div id="estMsgResult" class="msg-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: MERCADO
+    ============================= -->
+    <section id="mercado" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Mercado & Cotação</h1>
+        <p class="section-sub">Acompanhe os preços do algodão e tome melhores decisões de venda</p>
+      </div>
+
+      <div class="mercado-kpis">
+        <div class="merc-kpi">
+          <div class="mk-label">Algodão (BM&F)</div>
+          <div class="mk-value">R$ 148,00/@</div>
+          <div class="mk-trend up-trend">▲ +2,06%</div>
+        </div>
+        <div class="merc-kpi">
+          <div class="mk-label">Cotton NY (ICE)</div>
+          <div class="mk-value">80,42 ¢/lb</div>
+          <div class="mk-trend up-trend">▲ +0,8%</div>
+        </div>
+        <div class="merc-kpi">
+          <div class="mk-label">Dólar (USD/BRL)</div>
+          <div class="mk-value">R$ 5,82</div>
+          <div class="mk-trend down-trend">▼ -0,12%</div>
+        </div>
+        <div class="merc-kpi">
+          <div class="mk-label">Tendência 30 dias</div>
+          <div class="mk-value">📈 Alta</div>
+          <div class="mk-trend up-trend">Mercado otimista</div>
+        </div>
+      </div>
+
+      <div class="historico-precos">
+        <h2>Histórico de Preços — Últimos 12 Meses</h2>
+        <div class="chart-container">
+          <svg viewBox="0 0 700 200" class="price-chart">
+            <!-- Eixo Y -->
+            <line x1="50" y1="10" x2="50" y2="180" stroke="#2a3a2a" stroke-width="1"/>
+            <!-- Eixo X -->
+            <line x1="50" y1="180" x2="680" y2="180" stroke="#2a3a2a" stroke-width="1"/>
+            <!-- Linhas de grade -->
+            <line x1="50" y1="50" x2="680" y2="50" stroke="#1a2e1a" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="50" y1="90" x2="680" y2="90" stroke="#1a2e1a" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="50" y1="130" x2="680" y2="130" stroke="#1a2e1a" stroke-width="1" stroke-dasharray="4,4"/>
+            <!-- Labels Y -->
+            <text x="40" y="54" fill="#5a7a5a" font-size="10" text-anchor="end">160</text>
+            <text x="40" y="94" fill="#5a7a5a" font-size="10" text-anchor="end">145</text>
+            <text x="40" y="134" fill="#5a7a5a" font-size="10" text-anchor="end">130</text>
+            <text x="40" y="174" fill="#5a7a5a" font-size="10" text-anchor="end">115</text>
+            <!-- Labels X -->
+            <text x="68" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Jun/25</text>
+            <text x="118" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Jul/25</text>
+            <text x="168" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Ago/25</text>
+            <text x="218" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Set/25</text>
+            <text x="268" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Out/25</text>
+            <text x="318" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Nov/25</text>
+            <text x="368" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Dez/25</text>
+            <text x="418" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Jan/26</text>
+            <text x="468" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Fev/26</text>
+            <text x="518" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Mar/26</text>
+            <text x="568" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Abr/26</text>
+            <text x="618" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Mai/26</text>
+            <text x="668" y="195" fill="#5a7a5a" font-size="9" text-anchor="middle">Jun/26</text>
+            <!-- Área preenchida -->
+            <polygon points="68,145 118,148 168,155 218,150 268,138 318,130 368,125 418,118 468,112 518,108 568,95 618,85 668,70 668,180 68,180" fill="#2a5a1a" opacity="0.4"/>
+            <!-- Linha do gráfico -->
+            <polyline points="68,145 118,148 168,155 218,150 268,138 318,130 368,125 418,118 468,112 518,108 568,95 618,85 668,70" fill="none" stroke="#5cb85c" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Pontos -->
+            <circle cx="668" cy="70" r="5" fill="#5cb85c"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="simulador-venda">
+        <h2>💱 Simulador de Venda</h2>
+        <div class="sim-form">
+          <div class="form-group">
+            <label>Quantidade a vender (@)</label>
+            <input type="number" id="simQtd" class="input-field" value="12400" placeholder="Ex: 12400">
+          </div>
+          <div class="form-group">
+            <label>Preço de venda (R$/@)</label>
+            <input type="number" id="simPreco" class="input-field" value="148" step="0.5" placeholder="Ex: 148">
+          </div>
+          <div class="form-group">
+            <label>Frete / Desconto (R$)</label>
+            <input type="number" id="simFrete" class="input-field" value="0" placeholder="Ex: 5000">
+          </div>
+          <button class="btn-primary" onclick="simularVenda()">Simular Venda</button>
+        </div>
+        <div id="simResult" class="sim-result hidden">
+          <div class="sim-row"><span>Receita Bruta</span><strong id="simBruta">--</strong></div>
+          <div class="sim-row"><span>(-) Frete/Descontos</span><strong id="simDesconto">--</strong></div>
+          <div class="sim-divider"></div>
+          <div class="sim-row big-row"><span>RECEITA LÍQUIDA</span><strong id="simLiquida" class="green-val">--</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: PAINEL DE VENDAS
+    ============================= -->
+    <section id="venda" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Painel de Vendas</h1>
+        <p class="section-sub">Gerencie compradores, anúncios e histórico de vendas</p>
+      </div>
+
+      <div class="marketplace-container">
+        <div class="anuncio-form">
+          <h2>📣 Anunciar Algodão</h2>
+          <div class="form-group">
+            <label>Quantidade disponível (@)</label>
+            <input type="number" id="anuQtd" class="input-field" placeholder="Ex: 5000">
+          </div>
+          <div class="form-group">
+            <label>Preço pedido (R$/@)</label>
+            <input type="number" id="anuPreco" class="input-field" placeholder="Ex: 148">
+          </div>
+          <div class="form-group">
+            <label>Classificação do algodão</label>
+            <select id="anuClass" class="input-field">
+              <option>Tipo 2</option>
+              <option>Tipo 3</option>
+              <option>Tipo 4</option>
+              <option>Premium HVI</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Observações</label>
+            <textarea id="anuObs" class="input-field textarea-field" placeholder="Condições de entrega, certificações..."></textarea>
+          </div>
+          <button class="btn-primary" onclick="publicarAnuncio()">Publicar Anúncio</button>
+          <div id="anuResult" class="msg-result hidden"></div>
+        </div>
+
+        <div class="compradores-card">
+          <h2>🏭 Compradores Ativos</h2>
+          <div class="comprador-list">
+            <div class="comprador-item">
+              <div class="comp-icon">🏭</div>
+              <div class="comp-info">
+                <strong>Cooperativa Mato-Grossense</strong>
+                <span>Aceita: Tipo 2, 3 e Premium</span>
+              </div>
+              <div class="comp-preco">R$ 149,00/@</div>
+              <div class="comp-dist">42 km</div>
+            </div>
+            <div class="comprador-item">
+              <div class="comp-icon">🏢</div>
+              <div class="comp-info">
+                <strong>Pluma Têxtil</strong>
+                <span>Aceita: Premium HVI</span>
+              </div>
+              <div class="comp-preco">R$ 155,00/@</div>
+              <div class="comp-dist">118 km</div>
+            </div>
+            <div class="comprador-item">
+              <div class="comp-icon">🌍</div>
+              <div class="comp-info">
+                <strong>Exportadora CottonBR</strong>
+                <span>Aceita: Todos</span>
+              </div>
+              <div class="comp-preco">R$ 147,50/@</div>
+              <div class="comp-dist">280 km</div>
+            </div>
+            <div class="comprador-item">
+              <div class="comp-icon">🏭</div>
+              <div class="comp-info">
+                <strong>Fio & Tecido Ltda.</strong>
+                <span>Aceita: Tipo 3 e 4</span>
+              </div>
+              <div class="comp-preco">R$ 146,00/@</div>
+              <div class="comp-dist">65 km</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="historico-vendas">
+        <h2>Histórico de Vendas</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Data</th><th>Comprador</th><th>Qtd (@)</th><th>Preço/@</th><th>Valor Total</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>15/04/2026</td><td>Cooperativa MT</td><td>8.000</td><td>R$ 142,00</td><td>R$ 1.136.000</td><td><span class="badge badge-green">Pago</span></td></tr>
+              <tr><td>02/03/2026</td><td>Pluma Têxtil</td><td>5.200</td><td>R$ 138,50</td><td>R$ 720.200</td><td><span class="badge badge-green">Pago</span></td></tr>
+              <tr><td>10/02/2026</td><td>CottonBR</td><td>3.000</td><td>R$ 135,00</td><td>R$ 405.000</td><td><span class="badge badge-green">Pago</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: CONTRATOS
+    ============================= -->
+    <section id="contratos" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Contratos</h1>
+        <p class="section-sub">Gestão de contratos de compra e venda de algodão</p>
+      </div>
+
+      <div class="contratos-form">
+        <h2>Novo Contrato</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Comprador</label>
+            <input type="text" id="contComprador" class="input-field" placeholder="Nome da empresa">
+          </div>
+          <div class="form-group">
+            <label>Quantidade (@)</label>
+            <input type="number" id="contQtd" class="input-field" placeholder="Ex: 10000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preço combinado (R$/@)</label>
+            <input type="number" id="contPreco" class="input-field" placeholder="Ex: 150">
+          </div>
+          <div class="form-group">
+            <label>Prazo de entrega</label>
+            <input type="date" id="contPrazo" class="input-field">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Observações do contrato</label>
+          <textarea id="contObs" class="input-field textarea-field" placeholder="Condições gerais, penalidades, forma de pagamento..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="addContrato()">Registrar Contrato</button>
+      </div>
+
+      <h2 class="table-title">Contratos Ativos</h2>
+      <div class="table-wrap" id="contratosTabela">
+        <table class="data-table">
+          <thead>
+            <tr><th>Comprador</th><th>Qtd (@)</th><th>Preço/@</th><th>Valor Total</th><th>Prazo</th><th>Status</th></tr>
+          </thead>
+          <tbody id="contratosBody">
+            <tr>
+              <td>Cooperativa MT</td><td>12.000</td><td>R$ 148,00</td><td>R$ 1.776.000</td><td>30/07/2026</td>
+              <td><span class="badge badge-amber">Pendente</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: MÁQUINAS
+    ============================= -->
+    <section id="maquinas" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Máquinas e Manutenção</h1>
+        <p class="section-sub">Controle de frota, horas trabalhadas e histórico de manutenção</p>
+      </div>
+
+      <div class="maquinas-grid">
+        <div class="maquina-card">
+          <div class="maq-icon">🚜</div>
+          <div class="maq-nome">Trator John Deere 7200</div>
+          <div class="maq-status ok-status">● Operacional</div>
+          <div class="maq-info">
+            <div class="mi-row"><span>Horas trabalhadas</span><strong>2.840 h</strong></div>
+            <div class="mi-row"><span>Última manutenção</span><strong>20/05/2026</strong></div>
+            <div class="mi-row"><span>Próx. troca de óleo</span><strong>3.000 h ⚠</strong></div>
+          </div>
+        </div>
+        <div class="maquina-card">
+          <div class="maq-icon">🌾</div>
+          <div class="maq-nome">Colheitadeira Case IH 8250</div>
+          <div class="maq-status alert-status">● Manutenção Pendente</div>
+          <div class="maq-info">
+            <div class="mi-row"><span>Horas trabalhadas</span><strong>1.520 h</strong></div>
+            <div class="mi-row"><span>Última manutenção</span><strong>12/03/2026</strong></div>
+            <div class="mi-row"><span>Problema</span><strong class="red-txt">Troca de óleo vencida</strong></div>
+          </div>
+        </div>
+        <div class="maquina-card">
+          <div class="maq-icon">🛩️</div>
+          <div class="maq-nome">Pulverizador Stara Imperador</div>
+          <div class="maq-status ok-status">● Operacional</div>
+          <div class="maq-info">
+            <div class="mi-row"><span>Horas trabalhadas</span><strong>640 h</strong></div>
+            <div class="mi-row"><span>Última manutenção</span><strong>05/06/2026</strong></div>
+            <div class="mi-row"><span>Próx. revisão</span><strong>900 h</strong></div>
+          </div>
+        </div>
+        <div class="maquina-card">
+          <div class="maq-icon">🚛</div>
+          <div class="maq-nome">Caminhão Scania R450</div>
+          <div class="maq-status ok-status">● Operacional</div>
+          <div class="maq-info">
+            <div class="mi-row"><span>Km rodados</span><strong>84.200 km</strong></div>
+            <div class="mi-row"><span>Última revisão</span><strong>01/05/2026</strong></div>
+            <div class="mi-row"><span>Próx. revisão</span><strong>90.000 km</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="manut-form">
+        <h2>Registrar Manutenção</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Máquina</label>
+            <select class="input-field" id="manutMaq">
+              <option>Trator John Deere 7200</option>
+              <option>Colheitadeira Case IH 8250</option>
+              <option>Pulverizador Stara</option>
+              <option>Caminhão Scania R450</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipo de Manutenção</label>
+            <select class="input-field" id="manutTipo">
+              <option>Troca de óleo</option>
+              <option>Revisão geral</option>
+              <option>Troca de filtros</option>
+              <option>Reparo</option>
+              <option>Calibração</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Custo (R$)</label>
+            <input type="number" class="input-field" id="manutCusto" placeholder="Ex: 1500">
+          </div>
+          <div class="form-group">
+            <label>Data</label>
+            <input type="date" class="input-field" id="manutData">
+          </div>
+        </div>
+        <button class="btn-primary" onclick="addManut()">Registrar</button>
+        <div id="manutMsg" class="msg-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: DOCUMENTOS
+    ============================= -->
+    <section id="documentos" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Documentos</h1>
+        <p class="section-sub">Armazene e organize contratos, notas e certificados</p>
+      </div>
+
+      <div class="doc-categorias">
+        <div class="doc-cat active-doc" onclick="filterDocs('Todos', this)">
+          <span>📁</span> Todos
+        </div>
+        <div class="doc-cat" onclick="filterDocs('Notas', this)">
+          <span>🧾</span> Notas Fiscais
+        </div>
+        <div class="doc-cat" onclick="filterDocs('Contratos', this)">
+          <span>📝</span> Contratos
+        </div>
+        <div class="doc-cat" onclick="filterDocs('Certificados', this)">
+          <span>🏆</span> Certificados
+        </div>
+        <div class="doc-cat" onclick="filterDocs('Análises', this)">
+          <span>🔬</span> Análises
+        </div>
+        <div class="doc-cat" onclick="filterDocs('Fazenda', this)">
+          <span>🏡</span> Fazenda
+        </div>
+      </div>
+
+      <div class="doc-list" id="docList">
+        <div class="doc-item" data-cat="Notas">
+          <div class="doc-icon">🧾</div>
+          <div class="doc-info">
+            <strong>NF-e 004521 — Venda Cooperativa MT</strong>
+            <span>Emitida: 15/04/2026 — R$ 1.136.000</span>
+          </div>
+          <div class="doc-badge badge-green">Notas</div>
+          <button class="doc-btn">📄 Ver</button>
+        </div>
+        <div class="doc-item" data-cat="Contratos">
+          <div class="doc-icon">📝</div>
+          <div class="doc-info">
+            <strong>Contrato #12 — Cooperativa MT 2026</strong>
+            <span>Assinado: 20/03/2026 — 12.000 arrobas</span>
+          </div>
+          <div class="doc-badge badge-blue">Contratos</div>
+          <button class="doc-btn">📄 Ver</button>
+        </div>
+        <div class="doc-item" data-cat="Certificados">
+          <div class="doc-icon">🏆</div>
+          <div class="doc-info">
+            <strong>Certificado BCI — Better Cotton Initiative</strong>
+            <span>Validade: Dez/2026</span>
+          </div>
+          <div class="doc-badge badge-amber">Certificados</div>
+          <button class="doc-btn">📄 Ver</button>
+        </div>
+        <div class="doc-item" data-cat="Análises">
+          <div class="doc-icon">🔬</div>
+          <div class="doc-info">
+            <strong>Análise HVI — Talhão Norte Safra 25/26</strong>
+            <span>Data: 01/06/2026 — Fibra: 1-1/16" UHML</span>
+          </div>
+          <div class="doc-badge badge-blue">Análises</div>
+          <button class="doc-btn">📄 Ver</button>
+        </div>
+        <div class="doc-item" data-cat="Fazenda">
+          <div class="doc-icon">🏡</div>
+          <div class="doc-info">
+            <strong>CAR — Cadastro Ambiental Rural</strong>
+            <span>Nº: MT-51001899 — Válido</span>
+          </div>
+          <div class="doc-badge badge-green">Fazenda</div>
+          <button class="doc-btn">📄 Ver</button>
+        </div>
+      </div>
+
+      <div class="add-doc-form">
+        <h2>Cadastrar Documento</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome do Documento</label>
+            <input type="text" id="docNome" class="input-field" placeholder="Ex: NF-e 004522">
+          </div>
+          <div class="form-group">
+            <label>Categoria</label>
+            <select id="docCategoria" class="input-field">
+              <option>Notas</option>
+              <option>Contratos</option>
+              <option>Certificados</option>
+              <option>Análises</option>
+              <option>Fazenda</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Data</label>
+            <input type="date" id="docData" class="input-field">
+          </div>
+        </div>
+        <button class="btn-primary" onclick="addDoc()">Cadastrar Documento</button>
+        <div id="docMsg" class="msg-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: RELATÓRIOS
+    ============================= -->
+    <section id="relatorios" class="section">
+      <div class="section-header">
+        <h1 class="section-title">Relatórios</h1>
+        <p class="section-sub">Análises automáticas por safra, talhão e período</p>
+      </div>
+
+      <div class="relat-cards">
+        <div class="relat-card" onclick="gerarRelatorio('produtividade')">
+          <div class="relat-icon">📊</div>
+          <div class="relat-nome">Produtividade por Safra</div>
+          <button class="btn-relat">Gerar</button>
+        </div>
+        <div class="relat-card" onclick="gerarRelatorio('custos')">
+          <div class="relat-icon">💰</div>
+          <div class="relat-nome">Gastos por Categoria</div>
+          <button class="btn-relat">Gerar</button>
+        </div>
+        <div class="relat-card" onclick="gerarRelatorio('talhoes')">
+          <div class="relat-icon">🌿</div>
+          <div class="relat-nome">Comparativo de Talhões</div>
+          <button class="btn-relat">Gerar</button>
+        </div>
+        <div class="relat-card" onclick="gerarRelatorio('vendas')">
+          <div class="relat-icon">📈</div>
+          <div class="relat-nome">Histórico de Vendas</div>
+          <button class="btn-relat">Gerar</button>
+        </div>
+        <div class="relat-card" onclick="gerarRelatorio('maquinas')">
+          <div class="relat-icon">🚜</div>
+          <div class="relat-nome">Manutenção de Máquinas</div>
+          <button class="btn-relat">Gerar</button>
+        </div>
+        <div class="relat-card" onclick="gerarRelatorio('pragas')">
+          <div class="relat-icon">🐛</div>
+          <div class="relat-nome">Histórico de Pragas</div>
+          <button class="btn-relat">Gerar</button>
+        </div>
+      </div>
+
+      <div id="relatResult" class="relat-output hidden">
+        <h2 id="relatTitulo">Relatório</h2>
+        <div id="relatConteudo"></div>
+      </div>
+
+      <!-- Tabela comparativa de safras -->
+      <div class="comparativo-safra">
+        <h2>Comparativo de Safras</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Safra</th><th>Área (ha)</th><th>Prod. (@/ha)</th><th>Total (@)</th><th>Preço Médio</th><th>Receita</th><th>Lucro</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2025/26 (projetado)</td><td>4.280</td><td>23,4</td><td>100.152</td><td>R$ 148</td><td>R$ 14.822.496</td><td class="green-val">R$ 6.622.496</td></tr>
+              <tr><td>2024/25</td><td>3.850</td><td>21,8</td><td>83.930</td><td>R$ 136</td><td>R$ 11.414.480</td><td class="green-val">R$ 4.780.000</td></tr>
+              <tr><td>2023/24</td><td>3.200</td><td>20,5</td><td>65.600</td><td>R$ 128</td><td>R$ 8.396.800</td><td class="green-val">R$ 3.200.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SEÇÃO: IA AGRÍCOLA
+    ============================= -->
+    <section id="ia" class="section">
+      <div class="section-header">
+        <h1 class="section-title">IA Agrícola</h1>
+        <p class="section-sub">Assistente inteligente para diagnóstico e recomendações de campo</p>
+      </div>
+
+      <div class="ia-container">
+        <div class="ia-chat">
+          <div class="chat-header">
+            <div class="chat-avatar">🤖</div>
+            <div>
+              <strong>CottonBot</strong>
+              <span class="chat-online">● Online</span>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">
+              <div class="msg-bubble">
+                Olá! Sou o CottonBot, seu assistente agrícola inteligente. Posso ajudar com diagnóstico de pragas, doenças, dúvidas sobre manejo, ciclo do algodão, clima e muito mais. Como posso ajudar hoje?
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Pergunte sobre sua lavoura..." onkeydown="if(event.key==='Enter') enviarChat()">
+            <button class="chat-send" onclick="enviarChat()">➤</button>
+          </div>
+        </div>
+
+        <div class="ia-sugestoes">
+          <h2>Perguntas Frequentes</h2>
+          <div class="sugestao-list">
+            <button class="sugestao-btn" onclick="perguntarIA('Minha lavoura está com manchas amarelas nas folhas. O que pode ser?')">Manchas amarelas nas folhas</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Quando é o melhor momento para colher o algodão?')">Momento ideal de colheita</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Como controlar a lagarta rosada do algodão?')">Controle de lagarta rosada</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Qual a dose recomendada de ureia para algodão?')">Adubação nitrogenada</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Como a chuva forte afeta a colheita do algodão?')">Impacto da chuva na colheita</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Quais variedades de algodão têm maior produtividade?')">Melhores variedades</button>
+          </div>
+
+          <div class="ia-diagnostico-card">
+            <h2>🔬 Diagnóstico por Sintomas</h2>
+            <p>Selecione os sintomas observados:</p>
+            <div class="sintoma-check-list">
+              <label><input type="checkbox" id="ia_s1"> Folhas amareladas</label>
+              <label><input type="checkbox" id="ia_s2"> Manchas escuras</label>
+              <label><input type="checkbox" id="ia_s3"> Plantas murchas</label>
+              <label><input type="checkbox" id="ia_s4"> Fibra danificada</label>
+              <label><input type="checkbox" id="ia_s5"> Insetos visíveis</label>
+              <label><input type="checkbox" id="ia_s6"> Capulhos fechados tardiamente</label>
+            </div>
+            <button class="btn-primary" onclick="iaDiagnostico()">Analisar Sintomas</button>
+            <div id="iaDiagResult" class="diag-result hidden"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<script src="database.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
