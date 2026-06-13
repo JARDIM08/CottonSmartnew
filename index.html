@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <script src="script.js"></script>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
@@ -779,7 +779,7 @@
             </label>
           </div>
         </div>
-        <button class="btn-primary" onclick="diagnosticarPraga()">Diagnosticar</button>
+        <button class="btn-primary" onclick="diagnosticarPraga()">Analisar Sintomas</button>
         <div id="resultPraga" class="diag-result hidden"></div>
       </div>
 
@@ -1738,12 +1738,14 @@
         <div class="ia-sugestoes">
           <h2>Perguntas Frequentes</h2>
           <div class="sugestao-list">
-            <button class="sugestao-btn" onclick="perguntarIA('Minha lavoura está com manchas amarelas nas folhas. O que pode ser?')">Manchas amarelas nas folhas</button>
-            <button class="sugestao-btn" onclick="perguntarIA('Quando é o melhor momento para colher o algodão?')">Momento ideal de colheita</button>
-            <button class="sugestao-btn" onclick="perguntarIA('Como controlar a lagarta rosada do algodão?')">Controle de lagarta rosada</button>
-            <button class="sugestao-btn" onclick="perguntarIA('Qual a dose recomendada de ureia para algodão?')">Adubação nitrogenada</button>
-            <button class="sugestao-btn" onclick="perguntarIA('Como a chuva forte afeta a colheita do algodão?')">Impacto da chuva na colheita</button>
-            <button class="sugestao-btn" onclick="perguntarIA('Quais variedades de algodão têm maior produtividade?')">Melhores variedades</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Qual a melhor época para plantar algodão?')">Melhor época de plantio</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Quais são as principais pragas do algodão?')">Principais pragas</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Como saber o momento certo de colher?')">Momento ideal de colheita</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Como controlar o bicudo?')">Controle do bicudo</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Qual adubo é mais usado no algodão?')">Adubação do algodão</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Como aumentar a produtividade do algodão?')">Aumentar produtividade</button>
+            <button class="sugestao-btn" onclick="perguntarIA('O que influencia a qualidade da fibra?')">Qualidade da fibra</button>
+            <button class="sugestao-btn" onclick="perguntarIA('Como melhorar a eficiência da irrigação?')">Eficiência da irrigação</button>
           </div>
 
           <div class="ia-diagnostico-card">
