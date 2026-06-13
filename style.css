@@ -804,3 +804,36 @@ label{
 }
 
 }
+
+/* Estilo para o input do chat */
+.chat-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .chat-input:focus {
+    border-color: #5cb85c;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+  }
+  
+  /* Botão de envio */
+  .chat-send {
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chat-send:hover {
+    background-color: #4cae4c;
+  }

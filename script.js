@@ -689,3 +689,58 @@ link.classList.add("active");
 
 
 });
+
+/* ============================================================
+   ASSISTENTE IA (regras simples)
+   ============================================================ */
+   const baseIA = [
+    {k:['mancha','manchas','folha'], r:'Manchas nas folhas podem indicar **Ramulária** (manchas angulares cinza/marrom) ou **Mancha de Alternaria**. Recomendo: aplicar fungicida triazol + estrobilurina e melhorar arejamento da lavoura.'},
+    {k:['amarela','amarelo','amarelas'], r:'Folhas amareladas geralmente indicam **deficiência de nitrogênio**, **excesso de água** ou ataque de **pulgão/mosca-branca**. Verifique adubação e presença de insetos sugadores.'},
+    {k:['colher','colheita','colhe'], r:'O ponto ideal de colheita é quando **mais de 60% dos capulhos estão abertos** e a fibra apresenta cor branca brilhante. Evite colher com umidade alta para não comprometer a qualidade.'},
+    {k:['bicudo'], r:'Bicudo do algodoeiro: monitore com armadilhas de feromônio nas bordas, aplique inseticida sistêmico nos botões florais e destrua restos culturais após a colheita.'},
+    {k:['praga'], r:'Faça monitoramento semanal. As principais pragas do algodão são: bicudo, lagarta-da-maçã, percevejo, pulgão, mosca-branca e ácaros. Use manejo integrado (MIP).'},
+    {k:['chuva','seca','seco','água'], r:'Em períodos de seca, priorize irrigação na fase de florescimento (mais sensível). Faça plantio direto para reter umidade e considere variedades mais tolerantes.'},
+    {k:['preço','vender','venda','mercado'], r:'Acompanhe diariamente a cotação e o dólar. Boas estratégias: vender em lotes parciais, fechar contratos antecipados (hedge) e diversificar compradores.'},
+    {k:['adubo','aduba','fertiliza'], r:'Adubação típica: NPK 04-20-20 no plantio + nitrogênio em cobertura aos 30 e 60 dias. Faça análise de solo antes — economiza muito.'},
+    {k:['variedade','semente'], r:'Variedades populares no Brasil: FM 985 GLTP, IMA 5675 B2RF, TMG 47 B2RF. Escolha conforme região, ciclo desejado e resistência a pragas.'}
+  ];
+  
+  /* Função para enviar mensagens no chat */
+  function enviarChat() {
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+    const userMessage = chatInput.value.trim();
+  
+    if (userMessage === "") {
+      return; // Não enviar mensagens vazias
+    }
+  
+    // Adicionar a mensagem do usuário ao chat
+    addMsg(userMessage, 'user');
+  
+    // Limpar o campo de entrada
+    chatInput.value = "";
+  
+    // Processar a mensagem do usuário e gerar uma resposta
+    const txt = userMessage.toLowerCase();
+    let resp = 'Desculpe, ainda estou aprendendo. Não entendi sua pergunta.';
+    for (const item of baseIA) {
+      if (item.k.some(k => txt.includes(k))) {
+        resp = item.r;
+        break;
+      }
+    }
+  
+    // Adicionar a resposta do bot ao chat
+    setTimeout(() => addMsg(resp, 'bot'), 400);
+  }
+  
+  /* Função para adicionar mensagens ao chat */
+  function addMsg(text, who) {
+    const chatMessages = document.getElementById("chatMessages");
+    const msgElement = document.createElement("div");
+    msgElement.className = `chat-msg ${who}`;
+    msgElement.innerHTML = `<div class="msg-bubble">${text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</div>`;
+    chatMessages.appendChild(msgElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Rolar para a última mensagem
+  }
